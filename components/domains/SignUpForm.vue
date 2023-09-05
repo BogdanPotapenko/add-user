@@ -4,19 +4,19 @@
       <field
         label="Your name"
         type="text"
-        v-model="name as string"
+        v-model="(name as CreateUser)"
         :error="errorName"
       />
       <field
         label="Email"
         type="email"
-        v-model="email as string"
+        v-model="(email as CreateUser)"
         :error="erroreEmail"
       />
       <field
         label="Phone"
         type="text"
-        v-model="phone as string"
+        v-model="(phone as CreateUser)"
         :error="errorPhone"
         helper="+38 (XXX) XXX - XX - XX"
       />
@@ -106,11 +106,31 @@ const emailValidator =
 const phoneValidator = /^[\+]{0,1}380([0-9]{9})$/;
 
 const validationSchema = yup.object({
-  name: yup.string().required("The name must be at least 2 characters.").min(2).max(60),
-  email: yup.string().matches(emailValidator, "The email must be a valid email address.").required("The email field is required"),
-  phone: yup.string().matches(phoneValidator, "The phone must be a valid phone number.").required("The phone field is required."),
+  name: yup
+    .string()
+    .required("The name must be at least 2 characters.")
+    .min(2)
+    .max(60),
+  email: yup
+    .string()
+    .matches(emailValidator, "The email must be a valid email address.")
+    .required("The email field is required"),
+  phone: yup
+    .string()
+    .matches(phoneValidator, "The phone must be a valid phone number.")
+    .required("The phone field is required."),
   position_id: yup.string().required(),
-  photo: yup.mixed<Photo>().required("Required").test("Image is invalid.",(value) => value?.type === "image/jpeg" || value?.type === "image/jpg").test("The photo may not be greater than 5 Mbytes.",(value) => value?.size <= 5242880),
+  photo: yup
+    .mixed<Photo>()
+    .required("Required")
+    .test(
+      "Image is invalid.",
+      (value) => value?.type === "image/jpeg" || value?.type === "image/jpg"
+    )
+    .test(
+      "The photo may not be greater than 5 Mbytes.",
+      (value) => value?.size <= 5242880
+    ),
 });
 
 const { handleSubmit } = useForm({
