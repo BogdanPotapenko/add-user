@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#app {
+   font-family: 'Nunito Sans', sans-serif;
+   @apply m-0 bg-background h-full 
+}
+h1 {
+    @apply text-[40px]/[40px] text-center
+}
+p {
+    @apply text-[16px]/[26px] text-center
+}
