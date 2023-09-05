@@ -156,11 +156,7 @@ const handleFile = (event: Event) => {
 
 const isValid = computed(
   () =>
-    name.value !== "" &&
-    email.value &&
-    phone.value !== "" &&
-    position_id.value !== "" &&
-    photo.value
+    name.value && email.value && phone.value && position_id.value && photo.value
 );
 
 const onSubmit = handleSubmit(async (values) => {
