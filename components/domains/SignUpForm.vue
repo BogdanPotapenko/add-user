@@ -1,22 +1,12 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit" class="flex flex-col gap-[50px]">
-      <field
-        label="Your name"
-        type="text"
-        v-model="(name as CreateUser)"
-        :error="errorName"
-      />
-      <field
-        label="Email"
-        type="email"
-        v-model="(email as CreateUser)"
-        :error="erroreEmail"
-      />
+      <field label="Your name" type="text" v-model="name" :error="errorName" />
+      <field label="Email" type="email" v-model="email" :error="erroreEmail" />
       <field
         label="Phone"
         type="text"
-        v-model="(phone as CreateUser)"
+        v-model="phone"
         :error="errorPhone"
         helper="+38 (XXX) XXX - XX - XX"
       />
