@@ -1,1 +1,0 @@
-import{f as t,o,b as a,t as n}from"./entry.9da9cb9e.js";const s={class:"h-[34px] w-[100px] rounded-[80px] text-center bg-primary hover:bg-hover disabled:text-white disabled:bg-disabled"},c=t({__name:"Btn",props:{value:null},setup(e){return(r,l)=>(o(),a("button",s,n(e.value),1))}});export{c as _};
