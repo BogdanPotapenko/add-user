@@ -39,7 +39,7 @@
           type="file"
           id="photo"
           @change="handleFile($event)"
-          class="w-0"
+          class="w-0 h-0 opacity-0 absolute z-[-1]"
           accept=".jpg, .jpeg"
         />
         <span
